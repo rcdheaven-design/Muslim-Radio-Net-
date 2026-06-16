@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muslim Radio Net</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#081426;
+    color:white;
+    text-align:center;
+}
+
+.container{
+    margin-top:50px;
+    padding:20px;
+}
+
+.logo{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+h1{
+    color:#27c4a8;
+}
+
+button{
+    padding:15px 30px;
+    margin:10px;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.play{
+    background:#27c4a8;
+    color:white;
+}
+
+.stop{
+    background:#d9534f;
+    color:white;
+}
+
+.status{
+    margin-top:20px;
+    font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="logo.png" class="logo" alt="Logo Radio">
+
+    <h1>Muslim Radio Net</h1>
+
+    <audio id="radio">
+        <source src="https://pstnet37.shoutcastnet.com:10514/stream" type="audio/mpeg">
+    </audio>
+
+    <button class="play" onclick="playRadio()">▶ PLAY</button>
+
+    <button class="stop" onclick="stopRadio()">■ STOP</button>
+
+    <div class="status" id="status">
+        🔴 OFF AIR
+    </div>
+
+</div>
+
+<script>
+const radio = document.getElementById("radio");
+const statusText = document.getElementById("status");
+
+function playRadio(){
+    radio.play();
+    statusText.innerHTML = "🟢 ON AIR";
+}
+
+function stopRadio(){
+    radio.pause();
+    statusText.innerHTML = "🔴 OFF AIR";
+}
+</script>
+
+</body>
+</html>
